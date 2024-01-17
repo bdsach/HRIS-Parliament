@@ -11,6 +11,10 @@
 		129247402B5792710025AED7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292473F2B5792710025AED7 /* ContentView.swift */; };
 		129247422B5792720025AED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 129247412B5792720025AED7 /* Assets.xcassets */; };
 		129247452B5792720025AED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 129247442B5792720025AED7 /* Preview Assets.xcassets */; };
+		1292474C2B57B09E0025AED7 /* MemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292474B2B57B09E0025AED7 /* MemberModel.swift */; };
+		1292474E2B57B1D90025AED7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292474D2B57B1D90025AED7 /* NetworkService.swift */; };
+		129247582B57BC230025AED7 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129247572B57BC230025AED7 /* ListRow.swift */; };
+		12C8E9382B57D3C5002540C0 /* DetailMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E9372B57D3C5002540C0 /* DetailMemberView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		1292473F2B5792710025AED7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		129247412B5792720025AED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		129247442B5792720025AED7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1292474B2B57B09E0025AED7 /* MemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberModel.swift; sourceTree = "<group>"; };
+		1292474D2B57B1D90025AED7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		129247572B57BC230025AED7 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		12C8E9372B57D3C5002540C0 /* DetailMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemberView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +59,12 @@
 		1292473C2B5792710025AED7 /* HRIS-Parliament */ = {
 			isa = PBXGroup;
 			children = (
-				1292473D2B5792710025AED7 /* HRIS_ParliamentApp.swift */,
+				129247542B57BA1D0025AED7 /* Models */,
+				129247532B57BA120025AED7 /* Services */,
+				129247562B57BBB90025AED7 /* ViewModels */,
+				129247552B57BA240025AED7 /* Views */,
 				1292473F2B5792710025AED7 /* ContentView.swift */,
+				1292473D2B5792710025AED7 /* HRIS_ParliamentApp.swift */,
 				129247412B5792720025AED7 /* Assets.xcassets */,
 				129247432B5792720025AED7 /* Preview Content */,
 			);
@@ -65,6 +77,38 @@
 				129247442B5792720025AED7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		129247532B57BA120025AED7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1292474D2B57B1D90025AED7 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		129247542B57BA1D0025AED7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1292474B2B57B09E0025AED7 /* MemberModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		129247552B57BA240025AED7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				129247572B57BC230025AED7 /* ListRow.swift */,
+				12C8E9372B57D3C5002540C0 /* DetailMemberView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		129247562B57BBB90025AED7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				129247402B5792710025AED7 /* ContentView.swift in Sources */,
+				12C8E9382B57D3C5002540C0 /* DetailMemberView.swift in Sources */,
+				1292474C2B57B09E0025AED7 /* MemberModel.swift in Sources */,
+				1292474E2B57B1D90025AED7 /* NetworkService.swift in Sources */,
 				1292473E2B5792710025AED7 /* HRIS_ParliamentApp.swift in Sources */,
+				129247582B57BC230025AED7 /* ListRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
