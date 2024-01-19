@@ -11,7 +11,6 @@ struct ContentView: View {
     @State var members: [Member] = []
     @State var isOneColumn = true
     @State var showDetail = false
-    @State var selected: Member = Member(memberID: "", imgURL: "", name: "", positionInfo: "")
     @State var search = ""
     
     var twoColumns = [
@@ -22,6 +21,8 @@ struct ContentView: View {
     var oneColumn = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.size.width))
     ]
+    @Namespace var namespace
+    @State private var selectedElement: Member?
     
     var filteredMembers: [Member] {
         if search.isEmpty {
@@ -33,36 +34,37 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(.vertical) {
-                LazyVGrid(columns: isOneColumn ? oneColumn : twoColumns,
-                          spacing: 10) {
-                    ForEach(filteredMembers) {member in
-                        NavigationLink {
-                            DetailMemberView(member: member)
-                        } label: {
-                            ListRow(isOneColumn: $isOneColumn, member: member)
+            ZStack {
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: isOneColumn ? oneColumn : twoColumns,
+                              spacing: 10) {
+                        ForEach(filteredMembers) { member in
+                            ListRow(isOneColumn: $isOneColumn, selected: $selectedElement, member: member, namespace: namespace)
                         }
+                        .tint(.black)
                     }
-                    .tint(.black)
+                    .padding()
                 }
-                .padding()
-            }
-            .navigationTitle("สมาชิกสภาผู้แทนราษฎร")
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button(action: {
-                        withAnimation {
-                            isOneColumn.toggle()
-                        }
-                    }, label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                            .tint(.black)
-                            .font(.title)
-                    })
+                .zIndex(1)
+                .navigationTitle("สมาชิกสภาผู้แทนราษฎร")
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button(action: {
+                            withAnimation {
+                                isOneColumn.toggle()
+                            }
+                        }, label: {
+                            Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                                .tint(.black)
+                                .font(.title)
+                        })
+                    }
                 }
-            }
-            .onTapGesture {
-                showDetail.toggle()
+                
+                if let selected = selectedElement {
+                    DetailMemberView(member: selected, selectedElement: $selectedElement, namespace: namespace)
+                        .zIndex(2)
+                }
             }
         }
         .searchable(text: $search)
